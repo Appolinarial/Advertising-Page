@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI</title>
+    <link rel="stylesheet" href="css/main.min.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="logo"><img class="logo__image" src="images/logo.svg" alt="logo"><span class="logo__text">AI</span></div>
+          <nav class="nav"><a class="nav__link" href="#">Главная</a><a class="nav__link" href="#advantages">Преимущества</a>
+            <button class="btn header__submit" type="button" data-modal="explore">Получить доступ</button>
+          </nav>
+          <button class="burger" type="button"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+      <div class="mobile-menu"><a class="nav__link" href="#">Главная</a><a class="nav__link" href="#advantages">Преимущества</a>
+        <button class="btn header__explore" type="button" data-modal="explore">Получить доступ</button>
+      </div>
+    </header>
+    <main class="main">
+      <section class="preview">
+        <div class="preview__left">
+          <div class="container">
+            <div class="preview__text">
+              <h1 class="preview__title">Нейросеть</h1>
+              <h2 class="preview__subtitle">может всe!</h2>
+              <p class="preview__description">Мы уже живем в этой удивительной реальности</p>
+              <button class="btn--explore" type="button" data-modal="explore">Погрузиться в новый мир</button>
+            </div>
+          </div>
+        </div>
+        <div class="preview__right"><img class="preview__image" src="images/objects.svg" alt="Main image"></div>
+      </section>
+      <section class="advantages" id="advantages">
+        <div class="container">
+          <h2 class="section-title">Преимущества</h2>
+          <p class="section-subtitle">
+             Поможем создать <span class="highlight">корректный промт</span>, чтобы вы получили максимально корректный вариант под ваши нужды!</p>
+          <div class="advantages__bg-text">Преимущества</div>
+          <div class="advantages__grid">
+            <div class="card card--blue"><img class="card__image" src="/images/business.svg" alt="Хотите открыть бизнес?">
+              <h3 class="card__title">Хотите открыть бизнес?</h3>
+              <p class="card__text">Нейросеть поможет составить бизнес-план, рассчитать расходы, нарисовать логотип, найти место получше и станет вашим главным деловым партнером</p>
+            </div>
+            <div class="card card--blue"><img class="card__image" src="/images/holiday.svg" alt="Мечтаете об отпуске?">
+              <h3 class="card__title">Мечтаете об отпуске?</h3>
+              <p class="card__text">Нейросеть поможет найти место по вашим запросам, выбрать наилучший сезон, собрать чемодан, подыскать, где остановиться и сделать ваш отпуск незабываемым</p>
+            </div>
+            <div class="card card--blue"><img class="card__image" src="/images/studing.svg" alt="Вы студент и нуждаетесь в помощи в учебе?">
+              <h3 class="card__title">Вы студент и нуждаетесь в помощи в учебе?</h3>
+              <p class="card__text">Нет проблем! Нейросеть — ваш лучший друг, который поможет написать курсовую, решить сложный тест и подготовиться к экзаменам</p>
+            </div>
+            <div class="card card--blue"><img class="card__image" src="/images/health.svg" alt="Интересует здоровый образ жизни">
+              <h3 class="card__title">Интересует здоровый образ жизни</h3>
+              <p class="card__text">Нейросеть поделится советами по сбалансированному питанию, безопасным тренировкам и поддержке мотивации</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="modal" id="modal">
+      <div class="modal__content"><span class="modal__close"></span>
+        <h2 class="modal__title">Овладей нейросетями</h2>
+        <p class="modal__subtitle">Получи в подарок доступ ко всем курсам</p><img class="modal__image" src="images/modal-gifts.svg" alt="Modal image">
+        <form class="modal__form" novalidate>
+          <input class="modal__input" type="email" placeholder="Введите еmail" required><span class="modal__error"></span>
+          <button class="modal__submit" type="submit">Получить доступ</button>
+        </form>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
