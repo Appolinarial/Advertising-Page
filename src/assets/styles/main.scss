@@ -1,0 +1,264 @@
+@use './variables' as vars;
+@use './fonts';
+@use './components/buttons';
+@use './components/modal';
+@use './components/mobile-menu';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: vars.$dark;
+  color: vars.$light;
+}
+  
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media(max-width: 770px) {
+    padding: 0;
+  }
+}
+  
+.header {
+  padding: 20px 0;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 15px;
+  }
+
+  .logo {
+      width: 103px;
+      display: flex;
+      gap: 10px;
+      height: fit-content;
+      flex-direction: row;
+      align-items: flex-start;
+
+      &__text {
+          font-family: 'Involve', sans-serif;
+          font-weight: 300;
+          font-size: clamp(30px, 5vw, 44px); 
+      }
+      &__image {
+          max-width: 42px;
+          @media(max-width: 770px) {
+            width: 21px;
+          }
+      }
+  }
+  
+  .nav {
+    display: flex;
+    gap: clamp(24px, 7vw, 105px);
+    align-items: center;
+    @media(max-width: 770px) {
+      display: none;
+    }
+
+    &__link {
+      font-family: 'Evolventa', sans-serif;
+      font-weight: 100;
+      font-size: 24px;
+      color: vars.$light;
+      text-decoration: none;
+      opacity: .6;
+      
+      &:hover {
+        opacity: 1;
+        color: vars.$purple;
+      }
+      &:active {
+        opacity: 1;
+        color: vars.$dark-purple;
+      }
+      &:disabled {
+        opacity: 0.4;
+        color: vars.$dark-purple;
+      }
+    }
+  }
+}  
+
+.preview {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 60px;
+
+  @media (max-width: 770px) {
+    flex-direction: column;
+    height: auto;
+    margin: 0 30px;
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: clamp(10px, 10vw, 76px) 0;
+
+    @media (max-width: 770px) {
+      order: 2;
+      padding: 0;
+    }
+  }
+
+
+  &__right {
+    flex: 1;
+    padding: clamp(10px, 5vw, 26px) 0;
+
+    @media (max-width: 770px) {
+      order: 1;
+      padding: 0;
+    }
+
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  &__title {
+    font-family: 'Involve', sans-serif;
+    font-weight: 500;
+    font-size: clamp(52px, 10vw, 120px);
+    margin: 0;
+    line-height: 110%;
+    background: linear-gradient(90deg, vars.$purple 0%, vars.$blue 44%, vars.$sea 100%);
+    padding-bottom: 6px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__subtitle {
+    font-family: 'Involve', sans-serif;
+    font-weight: 500;
+    max-width: 679px;
+    font-size: clamp(36px, 7vw, 80px);
+    margin: 0;
+  }
+
+  &__description {
+    font-family: 'Evolventa', sans-serif;
+    font-weight: 100;
+    font-size: clamp(16px, 4vw, 24px);
+    margin: 30 0;
+
+    @media (max-width: 770px) {
+      margin: 18 0;
+    }
+  }
+}
+
+.advantages {
+  position: relative;
+  max-width: 930px;
+  padding: 0 30px;
+  margin: auto;
+
+  &__bg-text {
+    font-family: 'Involve', sans-serif;
+    font-weight: 700;
+    position: absolute;
+    top: 70px; // начальная позиция
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(48px, 15vw, 213px);
+    font-weight: bold;
+    opacity: 0.08;
+    pointer-events: none;
+    -webkit-text-stroke: 1px vars.$light;
+    text-stroke: 1px vars.$light;
+    color: vars.$dark;
+    z-index: 0;
+
+    @media (max-width: 1620px) {
+      top: 20px;
+    }
+
+    @media (max-width: 1200px) {
+      top: 0px;
+    }
+
+    @media (max-width: 900px) {
+      top: -20px;
+    }
+
+    @media (max-width: 700px) {
+      top: -40px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    margin-top: clamp(20px, 8vw, 96px);
+  }
+
+  .card--blue {
+    z-index: 2;
+    background-color: vars.$card-color;
+    padding: 30px;
+    border-radius: 18px;
+    color: #fff;
+    height: 332px;
+    box-sizing: border-box;
+  }
+
+  .card__title {
+    font-family: 'Evolventa', sans-serif;
+    font-size: 24px;
+    margin: 24px 0 24px 0;
+    font-weight: 100;
+  }
+
+  .card__text {
+    font-family: 'Evolventa', sans-serif;
+    font-size: 16px;
+    line-height: 110%;
+    font-weight: 100;
+    transform: scaleY(0.95);
+    display: inline-block;
+    letter-spacing: 0.04em;
+  }
+
+  .section-title {
+    font-family: 'Involve', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: clamp(36px, 8vw, 80px);
+    margin: 0;
+    padding-bottom: 24px;
+  }
+
+  .section-subtitle {
+      font-family: 'Evolventa', sans-serif;
+      text-align: center;
+      font-size: clamp(16px, 4vw, 24px);
+      line-height: 110%;
+      max-width: 670px;
+      margin: auto;
+      font-weight: 100;
+      letter-spacing: 0.05em;
+  }
+  .highlight {
+    color: vars.$purple;
+  }
+}

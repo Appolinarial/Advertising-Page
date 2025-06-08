@@ -1,0 +1,62 @@
+extends ../templates/layout.pug
+
+block content
+  header.header
+    .container
+      .header__wrapper
+        .logo
+          img.logo__image(src="images/logo.svg", alt="logo")
+          span.logo__text AI
+        nav.nav
+          a.nav__link(href="#") Главная
+          a.nav__link(href="#advantages") Преимущества
+          button.btn.header__submit(type="button", data-modal="explore") Получить доступ
+        button.burger(type="button")
+          span
+          span
+          span
+
+    .mobile-menu
+      a.nav__link(href="#") Главная
+      a.nav__link(href="#advantages") Преимущества
+      button.btn.header__explore(type="button", data-modal="explore") Получить доступ
+
+
+  main.main
+    section.preview
+      .preview__left
+        .container
+          .preview__text
+            h1.preview__title Нейросеть
+            h2.preview__subtitle может всe!
+            p.preview__description Мы уже живем в этой удивительной реальности
+            button.btn--explore(type="button", data-modal="explore") Погрузиться в новый мир
+      .preview__right
+        img.preview__image(src="images/objects.svg", alt="Main image")
+
+    section.advantages#advantages
+      .container
+        h2.section-title Преимущества
+        p.section-subtitle 
+          | Поможем создать 
+          span.highlight корректный промт
+          | , чтобы вы получили максимально корректный вариант под ваши нужды!
+        .advantages__bg-text Преимущества
+
+        .advantages__grid
+          each card in cards
+            .card.card--blue
+              img.card__image(src=card.image, alt=card.title)
+              h3.card__title= card.title
+              p.card__text= card.text
+
+  .modal#modal
+    .modal__content
+      span.modal__close
+      h2.modal__title Овладей нейросетями
+      p.modal__subtitle Получи в подарок доступ ко всем курсам
+      img.modal__image(src="images/modal-gifts.svg", alt="Modal image")
+      form.modal__form(novalidate)
+        input.modal__input(type="email", placeholder="Введите еmail", required)
+        span.modal__error
+        button.modal__submit(type="submit") Получить доступ
